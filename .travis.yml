@@ -9,6 +9,14 @@ before_install:
 script:
   - asciidoctor tpgl.adoc -o tp.html
 
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $Travis # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
+
 after_success:
   - echo Done!
 
